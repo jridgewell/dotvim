@@ -19,8 +19,8 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Allow custom plugins per filetype
-:filetype on
-:filetype plugin on
+filetype on
+filetype plugin on
 
 " Directories for swp files
 set backupdir=~/.vim/backup
@@ -59,8 +59,8 @@ set smartcase
 
 " MacVim
 if has("gui_macvim")
-    let macvim_hig_shift_movement=1
-    set guioptions=aAce
+	set guioptions=aAce
+	let macvim_hig_shift_movement=1
 endif
 
 " Use Mouse
@@ -89,7 +89,7 @@ let g:syntastic_quiet_warnings=1
 
 function s:setupMarkup()
 	call s:setupWrapping()
-	map <buffer> <Leader>p :Hammer<CR>
+	"map <buffer> <Leader>p :Hammer<CR>
 endfunction
 
 " md, markdown, and mk are markdown and define buffer-local preview
@@ -105,6 +105,5 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:CommandTMaxHeight=20
 
 " Enable syntastic syntax checking
-let g:syntax
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
