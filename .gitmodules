@@ -22,9 +22,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/ShowMarks"]
-	path = bundle/ShowMarks
-	url = git://github.com/harleypig/ShowMarks.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -37,3 +34,9 @@
 [submodule "bundle/SearchComplete"]
 	path = bundle/SearchComplete
 	url = git://github.com/vim-scripts/SearchComplete.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "bundle/c.vim"]
+	path = bundle/c.vim
+	url = git://github.com/vim-scripts/c.vim.git
