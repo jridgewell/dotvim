@@ -117,11 +117,10 @@ let NERDTreeIgnore=['\~$', '\.DS_Store']
 let NERDTreeChDirMode=2
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen = 0
-map <Leader>n :NERDTreeToggle<CR>:NERDTreeFind<CR>
+map <Leader>n :NERDTreeToggle<CR><C-w>l<CR>:NERDTreeFind<CR>
 nnoremap <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
 nnoremap <Leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-autocmd FocusGained * call s:UpdateNERDTree()
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
@@ -174,12 +173,12 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Textmate Training Wheels
-"
+" http://concisionandconcinnity.blogspot.com/2009/07/vim-part-ii-matching-pairs.html
 inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap { {<CR><BS>}<Esc>ko
 autocmd Syntax html,vim inoremap < <lt>><Left>
-"
+" Leave the matching pair
 function! ClosePair(char)
 	if getline('.')[col('.') - 1] == a:char
 		return "\<Right>"
@@ -190,7 +189,8 @@ endf
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
 inoremap } <c-r>=ClosePair('}')<CR>
-"
+inoremap > <c-r>=ClosePair('>')<CR>
+" Leave the matching pair for quotes
 function! QuoteDelim(char)
 	let line = getline('.')
 	let col = col('.')
@@ -207,7 +207,7 @@ function! QuoteDelim(char)
 endf
 inoremap " <c-r>=QuoteDelim('"')<CR>
 inoremap ' <c-r>=QuoteDelim("'")<CR>
-"
+" Enclose selection
 vnoremap (  <ESC>`>a)<ESC>`<i(<ESC>
 vnoremap )  <ESC>`>a)<ESC>`<i(<ESC>
 vnoremap {  <ESC>`>a}<ESC>`<i{<ESC>
@@ -217,7 +217,7 @@ vnoremap '  <ESC>`>a'<ESC>`<i'<ESC>
 vnoremap `  <ESC>`>a`<ESC>`<i`<ESC>
 vnoremap [  <ESC>`>a]<ESC>`<i[<ESC>
 vnoremap ]  <ESC>`>a]<ESC>`<i[<ESC>
-"
+"Delete pair if nothing is between them
 function! InAnEmptyPair()
 	let cur = strpart(getline('.'),getpos('.')[2]-2,2)
 	for pair in (split(&matchpairs,',') + ['":"',"':'"])
