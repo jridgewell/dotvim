@@ -116,10 +116,10 @@ let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\~$', '\.DS_Store']
 let NERDTreeChDirMode=2
 let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen = 0
+let NERDTreeQuitOnOpen=0
 map <Leader>n :NERDTreeToggle<CR><C-w>l<CR>:NERDTreeFind<CR>
-nnoremap <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
-nnoremap <Leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
+"nnoremap <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
+"nnoremap <Leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 " Close all open buffers on entering a window if the only
