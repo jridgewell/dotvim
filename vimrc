@@ -4,6 +4,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " Customizations
+syntax enable
 set number
 set ruler
 set nowrap
@@ -58,13 +59,21 @@ if has("mouse")
 endif
 
 " Theme
-syntax enable
-set background=dark
+set background=light
+"let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-let g:solarized_termcolors=256
 "let g:solarized_degrade=1
 "let g:solarized_visibility=high
 colorscheme solarized
+
+" Whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+""autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+""autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+""autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+""autocmd BufWinLeave * call clearmatches()>
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
