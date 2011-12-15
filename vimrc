@@ -8,20 +8,20 @@ set number
 set ruler
 set nowrap
 set list listchars=tab:\ \ ,trail:·
-"highlight RedundantSpaces ctermbg=red guibg=red
-"match RedundantSpaces \+\ze\t/
 set cursorline
 set hidden
 set spell
 
-" Keyboard Customizations
-vmap <D-]> >gv
-vmap <D-[> <gv
-nnoremap ' `
-nnoremap ` '
-let mapleader = ","
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+" Keyboard
+set clipboard=unnamed
+set backspace=indent,eol,start
+let mapleader=","
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " Allow custom plugins per filetype
 filetype on
@@ -38,15 +38,6 @@ set wildignore=*.o,*.obj,.git,*.class,.svn
 " Force UTF-8
 set encoding=utf-8
 
-" OS X
-if has("mac")
-	set backspace=indent,eol,start
-	set clipboard=unnamed
-	set backspace=2
-	set guifont=Anonymous\ Pro:h14
-	set laststatus=2
-endif
-
 " Show (partial) command in the status line
 set showcmd
 
@@ -54,32 +45,16 @@ set showcmd
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
-set autoindent
-set smartindent
-set noet
 
 " Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nmap <silent> <C-N> :let @/=""<CR>
-
-" MacVim
-if has("gui_macvim")
-	set guioptions=Ace
-	let macvim_hig_shift_movement=1
-endif
 
 " Use Mouse
 if has("mouse")
 	set mouse=a
-endif
-
-" Remember last location in file
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-	\| exe "normal g'\"" | endif
 endif
 
 " Theme
@@ -91,86 +66,44 @@ let g:solarized_termcolors=256
 "let g:solarized_visibility=high
 colorscheme solarized
 
-" Syntastic options
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
-
-function! s:setupWrapping()
-  set wrap
-  set wrapmargin=2
-  set textwidth=80
-endf
-
-function! s:setupMarkup()
-	call s:setupWrapping()
-	"map <buffer> <Leader>p :Hammer<CR>
-endf
-
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-" add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
-
-" NERDTree configuration
-let NERDTreeDirArrows=1
-let NERDTreeIgnore=['\~$', '\.DS_Store']
-let NERDTreeChDirMode=2
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=0
-map <Leader>n :NERDTreeToggle<CR><C-w>l<CR>:NERDTreeFind<CR>
-"nnoremap <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
-"nnoremap <Leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
-autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-" Close all open buffers on entering a window if the only
-" buffer that's left is the NERDTree buffer
-function! s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
-    endif
-  endif
-endfunction
-" If the parameter is a directory, cd into it
-function! s:CdIfDirectory(directory)
-  let explicitDirectory = isdirectory(a:directory)
-  let directory = explicitDirectory || empty(a:directory)
-  if explicitDirectory
-    exe "cd " . fnameescape(a:directory)
-  endif
-  " Allows reading from stdin
-  " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0 
-    return
-  endif
-  if directory
-    NERDTree
-    wincmd p
-    bd
-  endif
-  if explicitDirectory
-    wincmd p
-  endif
-endfunction
-
-" Command-T configuration
-let g:CommandTMaxHeight=20
-
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Indenting remaps
-vnoremap > >gv
-vnoremap < <gv
+
+if has("autocmd")
+	" In Makefiles, use real tabs, not tabs expanded to spaces
+	au FileType make set noexpandtab
+
+	" Make sure all mardown files have the correct filetype set and setup wrapping
+	au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+
+	" Treat JSON files like JavaScript
+	au BufNewFile,BufRead *.json set ft=javascript
+
+	" Remember last location in file, but not for commit messages.
+	" see :help last-position-jump
+	au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+	  \| exe "normal! g`\"" | endif
+endif
+
+" provide some context when editing
+set scrolloff=3
+
+" don't use Ex mode, use Q for formatting
+map Q gq
+
+" clear the search buffer when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 " Textmate Training Wheels
 " http://concisionandconcinnity.blogspot.com/2009/07/vim-part-ii-matching-pairs.html
@@ -208,15 +141,15 @@ endf
 inoremap " <c-r>=QuoteDelim('"')<CR>
 inoremap ' <c-r>=QuoteDelim("'")<CR>
 " Enclose selection
-vnoremap (  <ESC>`>a)<ESC>`<i(<ESC>
-vnoremap )  <ESC>`>a)<ESC>`<i(<ESC>
-vnoremap {  <ESC>`>a}<ESC>`<i{<ESC>
-vnoremap }  <ESC>`>a}<ESC>`<i{<ESC>
-vnoremap "  <ESC>`>a"<ESC>`<i"<ESC>
-vnoremap '  <ESC>`>a'<ESC>`<i'<ESC>
-vnoremap `  <ESC>`>a`<ESC>`<i`<ESC>
-vnoremap [  <ESC>`>a]<ESC>`<i[<ESC>
-vnoremap ]  <ESC>`>a]<ESC>`<i[<ESC>
+vnoremap (	<ESC>`>a)<ESC>`<i(<ESC>
+vnoremap )	<ESC>`>a)<ESC>`<i(<ESC>
+vnoremap {	<ESC>`>a}<ESC>`<i{<ESC>
+vnoremap }	<ESC>`>a}<ESC>`<i{<ESC>
+vnoremap "	<ESC>`>a"<ESC>`<i"<ESC>
+vnoremap '	<ESC>`>a'<ESC>`<i'<ESC>
+vnoremap `	<ESC>`>a`<ESC>`<i`<ESC>
+vnoremap [	<ESC>`>a]<ESC>`<i[<ESC>
+vnoremap ]	<ESC>`>a]<ESC>`<i[<ESC>
 "Delete pair if nothing is between them
 function! InAnEmptyPair()
 	let cur = strpart(getline('.'),getpos('.')[2]-2,2)
