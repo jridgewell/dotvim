@@ -61,9 +61,8 @@ endif
 " Theme
 set background=light
 "let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+"let g:solarized_termtrans=1
 "let g:solarized_degrade=1
-"let g:solarized_visibility=high
 colorscheme solarized
 
 " Whitespace
@@ -73,7 +72,7 @@ match ExtraWhitespace /\s\+$/
 ""autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 ""autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 ""autocmd BufWinLeave * call clearmatches()>
-autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$\| \+\ze\t/
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -86,11 +85,11 @@ if has("autocmd")
 	" In Makefiles, use real tabs, not tabs expanded to spaces
 	au FileType make set noexpandtab
 
-	" Make sure all mardown files have the correct filetype set and setup wrapping
-	au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
-
 	" Treat JSON files like JavaScript
 	au BufNewFile,BufRead *.json set ft=javascript
+
+	" Logos files for Theos"
+	au BufNewFile,BufRead *.xm,*.xmm,*.l.mm setf logos
 
 	" Remember last location in file, but not for commit messages.
 	" see :help last-position-jump
@@ -113,67 +112,3 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
-
-" Textmate Training Wheels
-" http://concisionandconcinnity.blogspot.com/2009/07/vim-part-ii-matching-pairs.html
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {<CR><BS>}<Esc>ko
-autocmd Syntax html,vim inoremap < <lt>><Left>
-" Leave the matching pair
-function! ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	else
-		return a:char
-	endif
-endf
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap > <c-r>=ClosePair('>')<CR>
-" Leave the matching pair for quotes
-function! QuoteDelim(char)
-	let line = getline('.')
-	let col = col('.')
-	if line[col - 2] == "\\"
-		"Inserting a quoted quotation mark into the string
-		return a:char
-	elseif line[col - 1] == a:char
-		"Escaping out of the string
-		return "\<Right>"
-	else
-		"Starting a string
-		return a:char.a:char."\<Left>"
-	endif
-endf
-inoremap " <c-r>=QuoteDelim('"')<CR>
-inoremap ' <c-r>=QuoteDelim("'")<CR>
-" Enclose selection
-vnoremap (	<ESC>`>a)<ESC>`<i(<ESC>
-vnoremap )	<ESC>`>a)<ESC>`<i(<ESC>
-vnoremap {	<ESC>`>a}<ESC>`<i{<ESC>
-vnoremap }	<ESC>`>a}<ESC>`<i{<ESC>
-vnoremap "	<ESC>`>a"<ESC>`<i"<ESC>
-vnoremap '	<ESC>`>a'<ESC>`<i'<ESC>
-vnoremap `	<ESC>`>a`<ESC>`<i`<ESC>
-vnoremap [	<ESC>`>a]<ESC>`<i[<ESC>
-vnoremap ]	<ESC>`>a]<ESC>`<i[<ESC>
-"Delete pair if nothing is between them
-function! InAnEmptyPair()
-	let cur = strpart(getline('.'),getpos('.')[2]-2,2)
-	for pair in (split(&matchpairs,',') + ['":"',"':'"])
-		if cur == join(split(pair,':'),'')
-			return 1
-		endif
-	endfor
-	return 0
-endf
-func! DeleteEmptyPairs()
-	if InAnEmptyPair()
-		return "\<Left>\<Del>\<Del>"
-	else
-		return "\<BS>"
-	endif
-endfunc
-inoremap <expr> <BS> DeleteEmptyPairs()
