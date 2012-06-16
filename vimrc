@@ -49,7 +49,7 @@ set encoding=utf-8
 
 " Show (partial) command in the status line
 if has("statusline") && !&cp
-	set laststatus=2  " always show the status bar
+	set laststatus=2	" always show the status bar
 	" Start the status line
 	set statusline=%f\ %m\ %r
 	set statusline+=[%{strlen(&ft)?&ft:'none'},
@@ -59,6 +59,9 @@ if has("statusline") && !&cp
 	set statusline+=\ Line:%l/%L[%p%%]
 	set statusline+=\ Col:%v
 	set statusline+=\ [%b][0x%B]
+	set statusline+=%=%#warningmsg#
+	set statusline+=%=%{SyntasticStatuslineFlag()}
+	set statusline+=%=%*
 	set showcmd
 endif
 
@@ -109,28 +112,28 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Some file types should wrap their text
 function! s:setupWrapping()
-  set wrap
-  set linebreak
-  set textwidth=72
-  set nolist
+	set wrap
+	set linebreak
+	set textwidth=72
+	set nolist
 endfunction
 
 if has("autocmd")
 	" In Makefiles, use real tabs, not tabs expanded to spaces
 	au FileType make set noexpandtab
 
-  " Set the Ruby filetype for a number of common Ruby files without .rb
-  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
+	" Set the Ruby filetype for a number of common Ruby files without .rb
+	au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
 
-  " Make sure all mardown files have the correct filetype set and setup wrapping
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+	" Make sure all mardown files have the correct filetype set and setup wrapping
+	au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json set ft=javascript
+	" Treat JSON files like JavaScript
+	au BufNewFile,BufRead *.json set ft=javascript
 
-  " Remember last location in file, but not for commit messages.
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
+	" Remember last location in file, but not for commit messages.
+	au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+		\| exe "normal! g`\"" | endif
 endif
 
 " double percentage sign in command mode is expanded
@@ -154,9 +157,9 @@ map <leader>t :CommandT<cr>
 autocmd FocusGained * call s:CmdTFlush()
 autocmd BufWritePost * call s:CmdTFlush()
 function s:CmdTFlush(...)
-  if exists(":CommandTFlush") == 2
-    CommandTFlush
-  endif
+	if exists(":CommandTFlush") == 2
+		CommandTFlush
+	endif
 endfunction
 
 
@@ -169,41 +172,41 @@ autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)
-  let explicitDirectory = isdirectory(a:directory)
-  let directory = explicitDirectory || empty(a:directory)
-  if explicitDirectory
-    exe "cd " . fnameescape(a:directory)
-  endif
-  " Allows reading from stdin
-  " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0
-    return
-  endif
-  if directory
-    NERDTree
-    wincmd p
-    bd
-  endif
-  if explicitDirectory
-    wincmd p
-  endif
+	let explicitDirectory = isdirectory(a:directory)
+	let directory = explicitDirectory || empty(a:directory)
+	if explicitDirectory
+		exe "cd " . fnameescape(a:directory)
+	endif
+	" Allows reading from stdin
+	" ex: git diff | mvim -R -
+	if strlen(a:directory) == 0
+		return
+	endif
+	if directory
+		NERDTree
+		wincmd p
+		bd
+	endif
+	if explicitDirectory
+		wincmd p
+	endif
 endfunction
 " NERDTree utility function
 function s:UpdateNERDTree(...)
-  let stay = 0
-  if(exists("a:1"))
-    let stay = a:1
-  end
-  if exists("t:NERDTreeBufName")
-    let nr = bufwinnr(t:NERDTreeBufName)
-    if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
-      if !stay
-        wincmd p
-      end
-    endif
-  endif
+	let stay = 0
+	if(exists("a:1"))
+		let stay = a:1
+	end
+	if exists("t:NERDTreeBufName")
+		let nr = bufwinnr(t:NERDTreeBufName)
+		if nr != -1
+			exe nr . "wincmd w"
+			exe substitute(mapcheck("R"), "<CR>", "", "")
+			if !stay
+				wincmd p
+			end
+		endif
+	endif
 endfunction
 
 " Supertab
