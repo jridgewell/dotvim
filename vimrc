@@ -52,11 +52,14 @@ if has("statusline") && !&cp
 	set laststatus=2  " always show the status bar
 	" Start the status line
 	set statusline=%f\ %m\ %r
-	set statusline+=Line:%l/%L[%p%%]
-	set statusline+=Col:%v
-	set statusline+=Buf:#%n
-	set statusline+=[%b][0x%B]
-	" set showcmd
+	set statusline+=[%{strlen(&ft)?&ft:'none'},
+	set statusline+=%{strlen(&fenc)?&fenc:&enc},
+	set statusline+=%{&fileformat}]
+	set statusline+=\ Buf:#%n
+	set statusline+=\ Line:%l/%L[%p%%]
+	set statusline+=\ Col:%v
+	set statusline+=\ [%b][0x%B]
+	set showcmd
 endif
 
 " Tabs
