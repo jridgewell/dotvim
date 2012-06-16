@@ -208,3 +208,6 @@ endfunction
 
 " Supertab
 let g:SuperTabMappingTabLiteral='<leader><tab>'
+
+" Syntastic
+let g:syntastic_check_on_open=1

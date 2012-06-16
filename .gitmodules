@@ -49,3 +49,6 @@
 [submodule "colors/molokai"]
 	path = colors/molokai
 	url = git://github.com/tomasr/molokai.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
