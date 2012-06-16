@@ -200,3 +200,6 @@ function s:UpdateNERDTree(...)
     endif
   endif
 endfunction
+
+" Supertab
+let g:SuperTabMappingTabLiteral='<leader><tab>'
