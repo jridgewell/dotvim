@@ -16,9 +16,36 @@
 [submodule "bundle/vim-smartinput"]
 	path = bundle/vim-smartinput
 	url = git://github.com/kana/vim-smartinput.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "syntax/Vim-PHP-Stuff"]
+	path = syntax/Vim-PHP-Stuff
+	url = git://github.com/paulyg/Vim-PHP-Stuff.git
 [submodule "syntax/html5.vim"]
 	path = syntax/html5.vim
 	url = git://github.com/othree/html5.vim.git
+[submodule "syntax/scss-syntax.vim"]
+	path = syntax/scss-syntax.vim
+	url = git://github.com/cakebaker/scss-syntax.vim.git
+[submodule "syntax/vim-javascript"]
+	path = syntax/vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
 [submodule "syntax/vim-markdown"]
 	path = syntax/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
+[submodule "syntax/vim-node.js"]
+	path = syntax/vim-node.js
+	url = git://github.com/mmalecki/vim-node.js.git
+[submodule "syntax/vim-rails"]
+	path = syntax/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "syntax/vim-rspec"]
+	path = syntax/vim-rspec
+	url = git://github.com/skwp/vim-rspec.git
+[submodule "syntax/vim-ruby"]
+	path = syntax/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "colors/molokai"]
+	path = colors/molokai
+	url = git://github.com/tomasr/molokai.git
