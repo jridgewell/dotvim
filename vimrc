@@ -154,6 +154,7 @@ nmap <silent> <leader>cd :lcd %:h<CR>
 
 " CommandT
 map <leader>t :CommandT<cr>
+let g:CommandTMaxHeight=20
 autocmd FocusGained * call s:CmdTFlush()
 autocmd BufWritePost * call s:CmdTFlush()
 function s:CmdTFlush(...)
