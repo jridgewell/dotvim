@@ -1,22 +1,26 @@
 " Pathogen
-"call pathogen#infect()
+call pathogen#infect('colors', 'bundle', 'syntax')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " Customizations
-syntax enable
-set number
-set ruler
-set nowrap
-set list listchars=tab:\ \ ,trail:·
-set cursorline
-set hidden
-set spell
+set nocompatible	" I don't use vi
+set number				" Show line numbers
+set ruler					" Show line/column in status
+set nowrap				" Don't wrap lines
+set list listchars=tab:\ \ ,trail:· "show tabs and trailing spaces
+set cursorline		" Highlight current line
+set hidden				" Make buffers work right
+set spell					" Spell check...
+set scrolloff=4		" provide some context when editing
 
 " Keyboard
-set clipboard=unnamed
-set backspace=indent,eol,start
 let mapleader=","
+set backspace=indent,eol,start
+
+" copy/paste
+set clipboard=unnamed
+set pastetoggle=<F2>
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
@@ -24,9 +28,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Allow custom plugins per filetype
-filetype on
-filetype plugin on
+" Allow filetype extras
+syntax on
+filetype plugin indent on
 
 " Directories for swp files
 set backupdir=~/.vim/backup
@@ -34,17 +38,28 @@ set directory=~/.vim/backup
 
 " Tab completion
 set wildmode=list:longest,list:full
-set wildignore=*.o,*.obj,.git,*.class,.svn
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem	" Disable output and VCS files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz							" Disable archive files
+set wildignore+=*.swp,*~,._*																				" Disable temp and backup files
 
 " Force UTF-8
 set encoding=utf-8
 
 " Show (partial) command in the status line
-set showcmd
+if has("statusline") && !&cp
+	set laststatus=2  " always show the status bar
+	" Start the status line
+	set statusline=%f\ %m\ %r
+	set statusline+=Line:%l/%L[%p%%]
+	set statusline+=Col:%v
+	set statusline+=Buf:#%n
+	set statusline+=[%b][0x%B]
+	" set showcmd
+endif
 
 " Tabs
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set noexpandtab
 
 " Searching
@@ -52,6 +67,11 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+:nnoremap <CR> :nohlsearch<cr>	" clear the search buffer when hitting return
+
+" [v]split in the good directions
+set splitright
+set splitbelow
 
 " Use Mouse
 if has("mouse")
@@ -59,7 +79,7 @@ if has("mouse")
 endif
 
 " Theme
-set background=light
+"set background=dark
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 "let g:solarized_degrade=1
@@ -73,6 +93,8 @@ match ExtraWhitespace /\s\+$/
 ""autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 ""autocmd BufWinLeave * call clearmatches()>
 autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$\| \+\ze\t/
+nmap <leader>fef ggVG= " format the entire file
+
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -80,35 +102,101 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Some file types should wrap their text
+function! s:setupWrapping()
+  set wrap
+  set linebreak
+  set textwidth=72
+  set nolist
+endfunction
 
 if has("autocmd")
 	" In Makefiles, use real tabs, not tabs expanded to spaces
 	au FileType make set noexpandtab
 
-	" Treat JSON files like JavaScript
-	au BufNewFile,BufRead *.json set ft=javascript
+  " Set the Ruby filetype for a number of common Ruby files without .rb
+  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
 
-	" Logos files for Theos"
-	au BufNewFile,BufRead *.xm,*.xmm,*.l.mm setf logos
+  " Make sure all mardown files have the correct filetype set and setup wrapping
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 
-	" Remember last location in file, but not for commit messages.
-	" see :help last-position-jump
-	au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-	  \| exe "normal! g`\"" | endif
+  " Treat JSON files like JavaScript
+  au BufNewFile,BufRead *.json set ft=javascript
+
+  " Remember last location in file, but not for commit messages.
+  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
 endif
-
-" provide some context when editing
-set scrolloff=3
-
-" don't use Ex mode, use Q for formatting
-map Q gq
-
-" clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
 
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
+" (it will prompt for sudo password when writing)
+cmap w!! %!sudo tee > /dev/null %
+
+" cd to the directory containing the file in the buffer
+nmap <silent> <leader>cd :lcd %:h<CR>
+
+
+" CommandT
+map <leader>t :CommandT<cr>
+autocmd FocusGained * call s:CmdTFlush()
+autocmd BufWritePost * call s:CmdTFlush()
+function s:CmdTFlush(...)
+  if exists(":CommandTFlush") == 2
+    CommandTFlush
+  endif
+endfunction
+
+
+" NERDTree
+map <leader>n :NERDTreeToggle<CR>
+let NERDTreeHijackNetrw=0
+let NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+augroup AuNERDTreeCmd
+autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
+" If the parameter is a directory, cd into it
+function s:CdIfDirectory(directory)
+  let explicitDirectory = isdirectory(a:directory)
+  let directory = explicitDirectory || empty(a:directory)
+  if explicitDirectory
+    exe "cd " . fnameescape(a:directory)
+  endif
+  " Allows reading from stdin
+  " ex: git diff | mvim -R -
+  if strlen(a:directory) == 0
+    return
+  endif
+  if directory
+    NERDTree
+    wincmd p
+    bd
+  endif
+  if explicitDirectory
+    wincmd p
+  endif
+endfunction
+" NERDTree utility function
+function s:UpdateNERDTree(...)
+  let stay = 0
+  if(exists("a:1"))
+    let stay = a:1
+  end
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+endfunction
