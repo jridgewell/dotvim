@@ -19,6 +19,8 @@ set scrolloff=4		" provide some context when editing
 " Keyboard
 let mapleader=","
 set backspace=indent,eol,start
+nmap <C-c> <Esc>
+map! <C-c> <Esc>
 
 " copy/paste
 set clipboard=unnamed
