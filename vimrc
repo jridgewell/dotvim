@@ -1,7 +1,9 @@
 " Pathogen
-call pathogen#infect('colors', 'bundle', 'syntax')
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect('colors')
+call pathogen#infect('syntax')
+call pathogen#infect('bundle')
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 " Customizations
 set nocompatible	" I don't use vi
