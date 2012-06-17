@@ -11,6 +11,7 @@ set number				" Show line numbers
 set ruler					" Show line/column in status
 set nowrap				" Don't wrap lines
 set list listchars=tab:\ \ ,trail:· "show tabs and trailing spaces
+set laststatus=2	" always show the status bar
 set cursorline		" Highlight current line
 set hidden				" Make buffers work right
 set spell					" Spell check...
