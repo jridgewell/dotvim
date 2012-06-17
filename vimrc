@@ -207,12 +207,12 @@ function s:CdIfDirectory(directory)
 endfunction
 " NERDTree utility function
 function s:UpdateNERDTree(...)
-	let stay = 0
+	let stay=0
 	if(exists("a:1"))
-		let stay = a:1
+		let stay=a:1
 	end
 	if exists("t:NERDTreeBufName")
-		let nr = bufwinnr(t:NERDTreeBufName)
+		let nr=bufwinnr(t:NERDTreeBufName)
 		if nr != -1
 			exe nr . "wincmd w"
 			exe substitute(mapcheck("R"), "<CR>", "", "")
