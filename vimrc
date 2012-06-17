@@ -74,6 +74,9 @@ endif
 set tabstop=2
 set shiftwidth=2
 set noexpandtab
+set autoindent
+set smartindent
+set smarttab
 
 " Searching
 set hlsearch
