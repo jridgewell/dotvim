@@ -171,21 +171,19 @@ autocmd AuNERDTreeCmd BufEnter * call s:CdIfDirectory(expand("<amatch>"))
 autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)
-	let explicitDirectory=isdirectory(a:directory)
-
-	if explicitDirectory
+	if isdirectory(a:directory)
 		exe "cd " . fnameescape(a:directory)
 	endif
 endfun
 function s:Nerd(directory)
-	let explicitDirectory=isdirectory(a:directory)
-	let directory=explicitDirectory || empty(a:directory)
-
 	" Allows reading from stdin
 	" ex: git diff | mvim -R -
 	if strlen(a:directory) == 0
 		return
 	endif
+	let explicitDirectory=isdirectory(a:directory)
+	let directory=explicitDirectory || empty(a:directory)
+
 	if directory
 		NERDTree
 		wincmd p
