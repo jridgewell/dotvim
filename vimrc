@@ -70,6 +70,8 @@ if has("statusline") && !&cp
 	set statusline+=%=%*
 	set showcmd
 endif
+let Powerline_symbols='fancy'
+set guifont=Anonymous\ Pro\ for\ Powerline:13
 
 " Tabs
 set tabstop=2
