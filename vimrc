@@ -109,10 +109,6 @@ endif
 " Whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-""autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-""autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-""autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-""autocmd BufWinLeave * call clearmatches()>
 autocmd Syntax * syn match ExtraWhitespace /\s\+\%#\@<!$\| \+\ze\t/
 nmap <leader>fef ggVG= " format the entire file
 
