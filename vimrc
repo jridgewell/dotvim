@@ -54,6 +54,8 @@ set wildignore+=*.swp,*~,._*																				" Disable temp and backup files
 set encoding=utf-8
 
 let Powerline_symbols='fancy'
+let g:Powerline_colorscheme='skwp'
+let g:Powerline_theme='skwp'
 
 " Tabs
 set tabstop=2
