@@ -53,23 +53,6 @@ set wildignore+=*.swp,*~,._*																				" Disable temp and backup files
 " Force UTF-8
 set encoding=utf-8
 
-" Show (partial) command in the status line
-if has("statusline") && !&cp
-	set laststatus=2	" always show the status bar
-	" Start the status line
-	set statusline=%f\ %m\ %r
-	set statusline+=[%{strlen(&ft)?&ft:'none'},
-	set statusline+=%{strlen(&fenc)?&fenc:&enc},
-	set statusline+=%{&fileformat}]
-	set statusline+=\ Buf:#%n
-	set statusline+=\ Line:%l/%L[%p%%]
-	set statusline+=\ Col:%v
-	set statusline+=\ [%b][0x%B]
-	set statusline+=%=%#warningmsg#
-	set statusline+=%=%{SyntasticStatuslineFlag()}
-	set statusline+=%=%*
-	set showcmd
-endif
 let Powerline_symbols='fancy'
 set guifont=Anonymous\ Pro\ for\ Powerline:13
 
