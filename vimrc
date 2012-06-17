@@ -179,6 +179,8 @@ endfunction
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHijackNetrw=0
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 augroup AuNERDTreeCmd
 autocmd AuNERDTreeCmd VimEnter * call s:Nerd(expand("<amatch>"))
