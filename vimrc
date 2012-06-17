@@ -14,7 +14,10 @@ set list listchars=tab:\ \ ,trail:· "show tabs and trailing spaces
 set cursorline		" Highlight current line
 set hidden				" Make buffers work right
 set spell					" Spell check...
-set scrolloff=4		" provide some context when editing
+set scrolloff=8		" provide some context when editing
+set sidescrolloff=15
+set sidescroll=1
+set visualbell		" No sounds
 
 " Keyboard
 let mapleader=","
