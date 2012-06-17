@@ -53,7 +53,7 @@ set wildignore+=*.swp,*~,._*																				" Disable temp and backup files
 " Force UTF-8
 set encoding=utf-8
 
-let Powerline_symbols='fancy'
+let g:Powerline_symbols='fancy'
 let g:Powerline_colorscheme='skwp'
 let g:Powerline_theme='skwp'
 
@@ -163,10 +163,10 @@ endfunction
 
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
-let NERDTreeHijackNetrw=0
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-let NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+let g:NERDTreeHijackNetrw=0
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeDirArrows=1
+let g:NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 augroup AuNERDTreeCmd
 autocmd AuNERDTreeCmd VimEnter * call s:Nerd(expand("<amatch>"))
 autocmd AuNERDTreeCmd BufEnter * call s:CdIfDirectory(expand("<amatch>"))
