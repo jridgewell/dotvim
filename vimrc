@@ -54,7 +54,6 @@ set wildignore+=*.swp,*~,._*																				" Disable temp and backup files
 set encoding=utf-8
 
 let Powerline_symbols='fancy'
-set guifont=Anonymous\ Pro\ for\ Powerline:13
 
 " Tabs
 set tabstop=2
@@ -83,6 +82,7 @@ endif
 " Theme
 set background=dark
 colorscheme solarized
+set guifont=Anonymous\ Pro\ for\ Powerline:13
 if has("gui_running")
 	set t_Co=256					"tell the term has 256 colors"
 	" Disable the scrollbars (NERDTree)
