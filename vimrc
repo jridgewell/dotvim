@@ -95,11 +95,16 @@ if has("mouse")
 endif
 
 " Theme
-"set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-"let g:solarized_degrade=1
+set background=dark
 colorscheme solarized
+if has("gui_running")
+	set t_Co=256					"tell the term has 256 colors"
+	" Disable the scrollbars (NERDTree)
+	set guioptions-=r
+	set guioptions-=L
+	" Disable the macvim toolbar
+	set guioptions-=T"
+endif
 
 " Whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
