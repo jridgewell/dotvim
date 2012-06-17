@@ -181,15 +181,21 @@ map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHijackNetrw=0
 let NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 augroup AuNERDTreeCmd
-autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+autocmd AuNERDTreeCmd VimEnter * call s:Nerd(expand("<amatch>"))
+autocmd AuNERDTreeCmd BufEnter * call s:CdIfDirectory(expand("<amatch>"))
 autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)
-	let explicitDirectory = isdirectory(a:directory)
-	let directory = explicitDirectory || empty(a:directory)
+	let explicitDirectory=isdirectory(a:directory)
+
 	if explicitDirectory
 		exe "cd " . fnameescape(a:directory)
 	endif
+endfun
+function s:Nerd(directory)
+	let explicitDirectory=isdirectory(a:directory)
+	let directory=explicitDirectory || empty(a:directory)
+
 	" Allows reading from stdin
 	" ex: git diff | mvim -R -
 	if strlen(a:directory) == 0
