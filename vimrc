@@ -57,7 +57,6 @@ set encoding=utf-8
 let g:Powerline_symbols='fancy'
 "let g:Powerline_colorscheme='solarizedDark'
 let g:Powerline_colorscheme='solarizedDark'
-let g:Powerline_cache_enabled=0
 call Pl#Theme#RemoveSegment('filetype')
 call Pl#Theme#RemoveSegment('lineinfo')
 "call Pl#Theme#RemoveSegment('scrollpercent')
