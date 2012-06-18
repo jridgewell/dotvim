@@ -229,3 +229,6 @@ let g:syntastic_check_on_open=1
 " Indent Guides
 let g:indent_guides_start_level=2
 let g:indent_guides_enable_on_vim_startup=1
+
+" Ack
+map <leader>a :Ack<space>
