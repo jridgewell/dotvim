@@ -171,38 +171,13 @@ endfunction
 
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
-let g:NERDTreeHijackNetrw=0
+let g:NERDTreeHijackNetrw=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=1
 let g:NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+let g:NERDTreeChDirMode=1
 augroup AuNERDTreeCmd
-autocmd AuNERDTreeCmd VimEnter * call s:Nerd(expand("<amatch>"))
-autocmd AuNERDTreeCmd BufEnter * call s:CdIfDirectory(expand("<amatch>"))
 autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
-" If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
-	if isdirectory(a:directory)
-		exe "cd " . fnameescape(a:directory)
-	endif
-endfun
-function s:Nerd(directory)
-	" Allows reading from stdin
-	" ex: git diff | mvim -R -
-	if strlen(a:directory) == 0
-		return
-	endif
-	let explicitDirectory=isdirectory(a:directory)
-	let directory=explicitDirectory || empty(a:directory)
-
-	if directory
-		NERDTree
-		wincmd p
-		bd
-	endif
-	if explicitDirectory
-		wincmd p
-	endif
-endfunction
 " NERDTree utility function
 function s:UpdateNERDTree(...)
 	let stay=0
