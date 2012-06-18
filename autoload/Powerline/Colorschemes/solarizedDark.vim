@@ -119,8 +119,8 @@ let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 		\ }),
 	\
 	\ Pl#Hi#Segments(['errors'], {
-		\ 'n': ['orange', 'b20'],
-		\ 'i': ['orange', 'b45'],
+		\ 'n': ['b92', 'red'],
+		\ 'i': ['b92', 'red'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['lineinfo.line.tot'], {
@@ -130,7 +130,7 @@ let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 		\ }),
 	\
 	\ Pl#Hi#Segments(['paste_indicator', 'ws_marker'], {
-		\ 'n': ['b92', 'red'],
+		\ 'n': ['b20', 'red'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['gundo:static_str.name', 'command_t:static_str.name'], {
