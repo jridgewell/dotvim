@@ -28,7 +28,8 @@ map! <C-c> <Esc>
 
 " copy/paste
 set clipboard=unnamed
-set pastetoggle=<F2>
+"set pastetoggle=<F2> "see https://github.com/Lokaltog/vim-powerline/issues/103
+nnoremap <F2> :set paste!<cr>
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
