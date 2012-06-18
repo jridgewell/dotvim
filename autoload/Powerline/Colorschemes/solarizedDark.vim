@@ -59,8 +59,8 @@ call Pl#Hi#Allocate({
 let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 	\ Pl#Hi#Segments(['SPLIT'], {
 		\ 'n': ['b65', 'b20'],
-		\ 'N': ['b65', 'b15'],
-		\ 'i': ['b65', 'b45'],
+		\ 'N': ['b65', 'b20'],
+		\ 'i': ['b65', 'b20'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['mode_indicator'], {
@@ -74,7 +74,7 @@ let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 	\ Pl#Hi#Segments(['scrollpercent'], {
 		\ 'n': ['b15', 'b45'],
 		\ 'N': ['b50', 'b20'],
-		\ 'i': ['b45', 'b20'],
+		\ 'i': ['b15', 'b45'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['branch', 'raw', 'filesize'], {
@@ -85,13 +85,13 @@ let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 	\
 	\ Pl#Hi#Segments(['fileinfo', 'filename'], {
 		\ 'n': ['b15', 'b45'],
-		\ 'N': ['gray7', 'gray0'],
-		\ 'i': ['b45', 'b20'],
+		\ 'N': ['gray0', 'gray2'],
+	 	\ 'i': ['b15', 'b45'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['fileinfo.filepath', 'status'], {
 		\ 'n': ['b65'],
-		\ 'N': ['gray5'],
+		\ 'N': ['gray0'],
 		\ 'i': ['b20'],
 		\ }),
 	\
@@ -107,9 +107,9 @@ let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 		\ 'i': ['red'],
 		\ }),
 	\
-	\ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup'], {
+	\ Pl#Hi#Segments(['currenttag', 'fileformat', 'fileencoding', 'pwd', 'filetype', 'rvm:string', 'rvm:statusline', 'virtualenv:statusline', 'charcode', 'currhigroup', 'buffer:number'], {
 		\ 'n': ['b45', 'b20'],
-		\ 'i': ['b60', 'b45'],
+		\ 'i': ['b45', 'b20'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['lineinfo'], {
@@ -149,7 +149,7 @@ let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 		\ }),
 	\
 	\ Pl#Hi#Segments(['lustyexplorer:static_str.name', 'minibufexplorer:static_str.name', 'nerdtree:raw.name', 'tagbar:static_str.name'], {
-		\ 'n': ['white', 'mediumgreen'],
+		\ 'n': ['b92', 'mediumgreen'],
 		\ 'N': ['mediumgreen', 'darkestgreen'],
 		\ }),
 	\
