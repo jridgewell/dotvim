@@ -173,6 +173,7 @@ map <leader>n :NERDTreeToggle<CR>
 let g:NERDTreeHijackNetrw=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=1
+let g:NERDTreeShowHidden=1
 let g:NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let g:NERDTreeChDirMode=1
 augroup AuNERDTreeCmd
