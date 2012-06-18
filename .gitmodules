@@ -13,9 +13,6 @@
 [submodule "bundle/vim-smartinput"]
 	path = bundle/vim-smartinput
 	url = git://github.com/kana/vim-smartinput.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "syntax/Vim-PHP-Stuff"]
 	path = syntax/Vim-PHP-Stuff
 	url = git://github.com/paulyg/Vim-PHP-Stuff.git
