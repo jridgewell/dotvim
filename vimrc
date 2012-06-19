@@ -89,11 +89,11 @@ if has("mouse")
 endif
 
 " Theme
+set t_Co=256					"tell the term has 256 colors"
 set background=dark
 colorscheme solarized
 set guifont=Anonymous\ Pro\ for\ Powerline:13
 if has("gui_running")
-	set t_Co=256					"tell the term has 256 colors"
 	" Disable the scrollbars (NERDTree)
 	set guioptions-=r
 	set guioptions-=L
