@@ -137,7 +137,7 @@ if has("autocmd")
 
 	" Remember last location in file, but not for commit messages.
 	au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-		\| exe "normal! g`\"" | endif
+				\| exe "normal! g`\"" | endif
 endif
 
 " double percentage sign in command mode is expanded
@@ -177,26 +177,26 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeIgnore=['\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 let g:NERDTreeChDirMode=1
 augroup AuNERDTreeCmd
-autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
-" NERDTree utility function
-function s:UpdateNERDTree(...)
-	let stay=0
-	if(exists("a:1"))
-		let stay=a:1
-	end
-	if exists("t:NERDTreeBufName")
-		let nr=bufwinnr(t:NERDTreeBufName)
-		if nr != -1
-			exe nr . "wincmd w"
-			exe substitute(mapcheck("R"), "<CR>", "", "")
-			if !stay
-				wincmd p
-			end
+	autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
+	" NERDTree utility function
+	function s:UpdateNERDTree(...)
+		let stay=0
+		if(exists("a:1"))
+			let stay=a:1
+		end
+		if exists("t:NERDTreeBufName")
+			let nr=bufwinnr(t:NERDTreeBufName)
+			if nr != -1
+				exe nr . "wincmd w"
+				exe substitute(mapcheck("R"), "<CR>", "", "")
+				if !stay
+					wincmd p
+				end
+			endif
 		endif
 	endif
 endfunction
 augroup END
-
 " Supertab
 let g:SuperTabMappingTabLiteral='<leader><tab>'
 
