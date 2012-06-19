@@ -119,8 +119,8 @@ let g:Powerline#Colorschemes#solarizedDark#colorscheme = Pl#Colorscheme#Init([
 		\ }),
 	\
 	\ Pl#Hi#Segments(['errors'], {
-		\ 'n': ['b92', 'red'],
-		\ 'i': ['b92', 'red'],
+		\ 'n': ['red', 'b20'],
+		\ 'i': ['red', 'b20'],
 		\ }),
 	\
 	\ Pl#Hi#Segments(['lineinfo.line.tot'], {
