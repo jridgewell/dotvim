@@ -209,7 +209,7 @@ let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " Ack
-map <leader>a :Ack<space>
+map <leader>a :Ack<space>-a<space>
 
 " Make TAB characters appear like normal.
 " This must appear after the THEME settings
