@@ -78,7 +78,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-:nnoremap <CR> :nohlsearch<cr>	" clear the search buffer when hitting return
+nnoremap <CR> :nohlsearch<cr>	" clear the search buffer when hitting return
 
 " [v]split in the good directions
 set splitright
