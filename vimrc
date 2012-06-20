@@ -170,7 +170,7 @@ endfunction
 
 
 " NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <silent> <leader>n :NERDTreeToggle<CR>
 let g:NERDTreeHijackNetrw=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=1
