@@ -92,7 +92,7 @@ endif
 set t_Co=256					"tell the term has 256 colors"
 set background=dark
 colorscheme solarized
-set guifont=Anonymous\ Pro\ for\ Powerline:13
+set guifont=Anonymous\ Pro\ for\ Powerline:14
 if has("gui_running")
 	" Disable the scrollbars (NERDTree)
 	set guioptions-=r
