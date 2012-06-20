@@ -93,6 +93,7 @@ endif
 set t_Co=256					"tell the term has 256 colors"
 set background=dark
 colorscheme solarized
+set guifont=Anonymous\ Pro\ for\ Powerline:h14
 
 " Whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
