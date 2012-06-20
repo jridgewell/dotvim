@@ -61,9 +61,10 @@ call Pl#Theme#InsertSegment('buffer:number', 'before', 'scrollpercent')
 
 
 " Tabs
-set noexpandtab
 set tabstop=4
 set shiftwidth=4
+"set noexpandtab
+set expandtab
 set autoindent
 set smartindent
 set smarttab
@@ -205,7 +206,7 @@ let g:syntastic_check_on_open=1
 
 " Indent Guides
 let g:indent_guides_start_level=2
-"let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 
 " Ack
