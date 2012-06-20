@@ -191,6 +191,35 @@ augroup AuNERDTreeCmd
 	endfunction
 augroup END
 
+
+" Helper to insert comments in common filetypes
+" Toggle Comments in certain filetypes
+nmap <silent> <leader>/ :call ToggleComment()<cr>
+imap <silent> <leader>/ <ESC>:call ToggleComment()<cr>a
+function ToggleComment()
+    let ft = &ft
+    let commentMap = {'php': '// ',
+        \ 'java': '// ',
+        \ 'javascript': '// ',
+        \ 'ruby': '# '
+        \ }
+    if has_key(commentMap, ft) 
+        let comment = commentMap[ft]
+        let substr = strpart(getline("."), 0, strlen(comment))
+        let replace = ''
+        let move = 0
+        if comment == substr
+            let replace = strpart(getline("."), strlen(comment))
+            let move = -1 * strlen(comment)
+        else
+            let replace = comment . getline(".")
+            let move = strlen(comment)
+        endif
+        call setline(line("."), replace)
+        call cursor(line("."), col(".") + move)
+    endif
+endfunction
+
 " Supertab
 let g:SuperTabMappingTabLiteral='<leader><tab>'
 
@@ -207,6 +236,8 @@ map <leader>a :Ack<space>-a<space>
 
 
 if has("gui_running")
+    nmap <silent> <d-/> :call ToggleComment()<cr>
+    imap <silent> <d-/> <ESC>:call ToggleComment()<cr>a
     map <d-t> :CommandT<cr>
 	" Disable the scrollbars (NERDTree)
 	set guioptions-=r
