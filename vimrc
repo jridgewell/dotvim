@@ -93,14 +93,6 @@ endif
 set t_Co=256					"tell the term has 256 colors"
 set background=dark
 colorscheme solarized
-set guifont=Anonymous\ Pro\ for\ Powerline:14
-if has("gui_running")
-	" Disable the scrollbars (NERDTree)
-	set guioptions-=r
-	set guioptions-=L
-	" Disable the macvim toolbar
-	set guioptions-=T"
-endif
 
 " Whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -211,6 +203,16 @@ let g:indent_guides_guide_size=1
 
 " Ack
 map <leader>a :Ack<space>-a<space>
+
+
+if has("gui_running")
+    map <d-t> :CommandT<cr>
+	" Disable the scrollbars (NERDTree)
+	set guioptions-=r
+	set guioptions-=L
+	" Disable the macvim toolbar
+	set guioptions-=T"
+endif
 
 " Make TAB characters appear like normal.
 " This must appear after the THEME settings
