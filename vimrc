@@ -183,7 +183,7 @@ augroup AuNERDTreeCmd
 		let stay=0
 		if(exists("a:1"))
 			let stay=a:1
-		end
+		endif
 		if exists("t:NERDTreeBufName")
 			let nr=bufwinnr(t:NERDTreeBufName)
 			if nr != -1
@@ -191,12 +191,12 @@ augroup AuNERDTreeCmd
 				exe substitute(mapcheck("R"), "<CR>", "", "")
 				if !stay
 					wincmd p
-				end
+				endif
 			endif
 		endif
-	endif
-endfunction
+	endfunction
 augroup END
+
 " Supertab
 let g:SuperTabMappingTabLiteral='<leader><tab>'
 
