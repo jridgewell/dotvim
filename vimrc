@@ -37,10 +37,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Allow filetype extras
-syntax on
-filetype plugin indent on
-
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -71,6 +67,10 @@ set noexpandtab
 set autoindent
 set smartindent
 set smarttab
+
+" Allow filetype extras
+syntax on
+filetype plugin indent on
 
 " Searching
 set hlsearch
