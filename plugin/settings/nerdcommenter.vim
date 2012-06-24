@@ -1,8 +1,8 @@
 " NERDCommenter mappings
 if has("gui_running")
-   map  <D-/> :NERDCommenterToggle<CR>
-   imap <D-/> <Esc>:NERDCommenterToggle<CR>a
+   map  <D-/> <Plug>NERDCommenterToggle
+   imap <D-/> <Esc><Plug>NERDCommenterToggle
 else
-   map  <leader>/ :NERDCommenterToggle<CR>
-   imap <leader>/ <Esc>:NERDCommenterToggle<CR>a
+   map  <leader>/ <Plug>NERDCommenterToggle
+   imap <leader>/ <Esc><Plug>NERDCommenterToggle
 endif
