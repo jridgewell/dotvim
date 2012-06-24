@@ -52,3 +52,9 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/jridgewell/nerdtree.git
+[submodule "syntax/php.vim--Garvin"]
+	path = syntax/php.vim--Garvin
+	url = git://github.com/vim-scripts/php.vim--Garvin.git
+[submodule "colors/vim-colors-solarized"]
+	path = colors/vim-colors-solarized
+	url = git://github.com/skwp/vim-colors-solarized.git
