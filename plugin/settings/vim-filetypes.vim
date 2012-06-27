@@ -16,6 +16,9 @@ if has("autocmd")
     " Treat JSON files like JavaScript
     au BufNewFile,BufRead *.json set ft=javascript
 
+    " Set tabstop to 2 for ruby files
+    au Filetype ruby,eruby setlocal softtabstop=2 tabstop=2 shiftwidth=2
+
     " Remember last location in file, but not for commit messages.
     au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g`\"" | endif
