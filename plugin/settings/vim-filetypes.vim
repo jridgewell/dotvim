@@ -1,9 +1,9 @@
 " Some file types should wrap their text
 function! s:setupWrapping()
-    set wrap
-    set linebreak
-    set textwidth=72
-    set nolist
+    setlocal wrap
+    setlocal linebreak
+    setlocal textwidth=72
+    setlocal nolist
 endfunction
 
 if has("autocmd")
