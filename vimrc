@@ -106,6 +106,6 @@ set guifont=Anonymous\ Pro\ for\ Powerline:h14
 
 
 " ================== Load Specific Plugins ===================
-for f in split(glob('~/.vim/plugin/settings/*.vim'), '\n')
-    exe 'source' f
-endfor
+"for f in split(glob('~/.vim/plugin/settings/*.vim'), '\n')
+"    exe 'source' f
+"endfor
