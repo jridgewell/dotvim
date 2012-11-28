@@ -4,6 +4,8 @@ function! s:setupWrapping()
     setlocal linebreak
     setlocal textwidth=72
     setlocal nolist
+    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    match ColorColumn '\%>72v.\+'
 endfunction
 
 if has("autocmd")
@@ -17,7 +19,7 @@ if has("autocmd")
     au BufNewFile,BufRead *.json set ft=javascript
 
     " Set tabstop to 2 for ruby files
-    au Filetype ruby,eruby setlocal softtabstop=2 tabstop=2 shiftwidth=2
+    au Filetype ruby,eruby,cucumber setlocal softtabstop=2 tabstop=2 shiftwidth=2
 
     " Remember last location in file, but not for commit messages.
     au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
