@@ -31,9 +31,6 @@
 [submodule "syntax/vim-ruby"]
 	path = syntax/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
-[submodule "colors/molokai"]
-	path = colors/molokai
-	url = git://github.com/tomasr/molokai.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
