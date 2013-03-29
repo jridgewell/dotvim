@@ -27,6 +27,9 @@ set viminfo='100,<50,s10,h,n~/.vim/backup " Store .viminfo in ~/.vim/backup
 set scrolloff=8                 " Show 8 lines above or below current line
 set sidescrolloff=15            " Show 15 columns on either side of current column
 set sidescroll=1                " Side-scroll sensibly beyond the screen
+if &xterm =~ "iPad"
+    set sidescroll=5            " If on iPad, side scroll by 5
+endif
 
 
 " ========================= Keyboard =========================
