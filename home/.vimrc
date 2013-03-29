@@ -20,6 +20,7 @@ set visualbell                  " No sounds
 set encoding=utf-8              " Force UTF-8 on files
 set list                        " Show certain chars
 set listchars=tab:\ \ ,trail:·  " Namely, trailing whitespace
+set viminfo='100,<50,s10,h,n~/.vim/backup " Store .viminfo in ~/.vim/backup
 
 
 " ======================== Scrolling =========================
