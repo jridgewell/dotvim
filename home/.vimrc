@@ -1,10 +1,35 @@
 " I don't use vi
 set nocompatible
 
-" ================= Pathogen Initialization ==================
-call pathogen#infect('colors')
-call pathogen#infect('syntax')
-call pathogen#infect('bundle')
+" ================== Vundle Initialization ===================
+filetype off                    " required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Colors
+Bundle 'skwp/vim-colors-solarized'
+" Syntax
+Bundle 'mmalecki/vim-node.js'
+Bundle 'othree/html5.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'skwp/vim-rspec'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+" Plugins
+Bundle 'ervandew/supertab'
+Bundle 'gmarik/vundle'
+Bundle 'jridgewell/nerdtree'
+Bundle 'kana/vim-smartinput'
+Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'mileszs/ack.vim'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
+Bundle 'skwp/vim-powerline'
+Bundle 'tpope/vim-endwise'
 
 
 " ====================== General Config ======================
