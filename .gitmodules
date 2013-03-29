@@ -52,12 +52,6 @@
 [submodule "home/.vim/syntax/vim-endwise"]
 	path = home/.vim/syntax/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
-[submodule "home/.vim/bundle/vim-snipmate"]
-	path = home/.vim/bundle/vim-snipmate
-	url = git://github.com/garbas/vim-snipmate.git
-[submodule "home/.vim/bundle/snipmate-snippets"]
-	path = home/.vim/bundle/snipmate-snippets
-	url = git://github.com/honza/snipmate-snippets.git
 [submodule "home/.vim/bundle/nerdcommenter"]
 	path = home/.vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
