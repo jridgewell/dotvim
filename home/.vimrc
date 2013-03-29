@@ -91,7 +91,7 @@ set hlsearch                    " Highlight all matches of a search
 set incsearch                   " Show first match as you type
 set ignorecase                  " Ignore case when searching
 set smartcase                   " Unless there's a capital letter
-nnoremap <CR> :nohlsearch<CR>   " clear the search buffer when hitting return
+nnoremap <silent> <CR> :nohlsearch<CR> " clear the search buffer when hitting return
 
 
 " ======================== Splitting =========================
