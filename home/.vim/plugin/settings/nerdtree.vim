@@ -6,7 +6,7 @@ let g:NERDTreeHijackNetrw=1
 
 " Look pretty
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeDirArrows=0
+let g:NERDTreeDirArrows=2
 
 " I like to edit .files...
 let g:NERDTreeShowHidden=1
