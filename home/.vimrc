@@ -78,6 +78,7 @@ set expandtab                   " Expand tabs into spaces
 set autoindent
 set smartindent
 set smarttab
+set shiftround
 
 
 " ===================== Per-File Syntax ======================
