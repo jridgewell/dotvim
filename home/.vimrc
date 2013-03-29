@@ -112,7 +112,7 @@ endif
 set background=dark
 let g:solarized_termtrans=1
 if has('gui_running')
-    set guifont=Anonymous\ Pro\ for\ Powerline:h14
+    set guifont=Anonymous\ Pro:h14
 endif
 colorscheme solarized
 
