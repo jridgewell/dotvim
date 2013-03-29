@@ -6,4 +6,4 @@ My precious .vim files
 ##Install
 First, install [homesick](https://github.com/technicalpickles/homesick). Then 
 
-    homesick clone jridgewell/vim
+    homesick clone jridgewell/dotvim
