@@ -5,7 +5,7 @@ nnoremap <Up>       :echoerr "Use k"<CR>
 nnoremap <Down>     :echoerr "Use j"<CR>
 
 " Insert Mode
-inoremap <Left>     <nop>
-inoremap <Right>    <nop>
-inoremap <Up>       <nop>
-inoremap <Down>     <nop>
+"inoremap <Left>     <nop>
+"inoremap <Right>    <nop>
+"inoremap <Up>       <nop>
+"inoremap <Down>     <nop>
