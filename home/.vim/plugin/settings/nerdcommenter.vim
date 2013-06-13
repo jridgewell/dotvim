@@ -6,3 +6,5 @@ else
    map  <leader>/ <Plug>NERDCommenterToggle
    imap <leader>/ <Esc><Plug>NERDCommenterToggle
 endif
+
+let g:NERDSpaceDelims=1
