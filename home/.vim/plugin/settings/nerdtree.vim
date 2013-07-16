@@ -1,6 +1,9 @@
 " Open NERDTree easily
 map <silent> <leader>n :NERDTreeToggle<CR>
 
+" Don't show these files
+let NERDTreeIgnore=['.DS_Store']
+
 " Let NERDTree take over NetRW
 let g:NERDTreeHijackNetrw=1
 
