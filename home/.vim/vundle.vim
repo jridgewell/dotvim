@@ -29,7 +29,6 @@ Bundle 'vim-ruby/vim-ruby'
 " Plugins
 Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
-Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kana/vim-smartinput'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
