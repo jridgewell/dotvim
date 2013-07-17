@@ -16,7 +16,10 @@ if has("autocmd")
     au FileType markdown call s:setupWrapping()
 
     " Treat JSON files like JavaScript
-    au BufNewFile,BufRead *.json set ft=javascript
+    au FileType json set ft=javascript
+
+    " Treat EJS/JST files like HTML
+    au FileType ejs,jst set ft=html
 
     " Set tabstop to 2 for ruby files
     au Filetype ruby,eruby,cucumber setlocal softtabstop=2 tabstop=2 shiftwidth=2
