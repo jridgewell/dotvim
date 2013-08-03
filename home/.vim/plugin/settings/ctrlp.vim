@@ -11,6 +11,13 @@ if has("gui_running") && has("gui_macvim")
     map <silent> <D-b> :CtrlPBuffer<CR>
 endif
 
+
+" Use The Silver Searcher, if it's available
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+
 " Refresh Ctrl-P when vim gains focus or a file is written
 if has("autocmd")
     augroup AuCtrlPCmd
