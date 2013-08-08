@@ -21,6 +21,8 @@ set visualbell                          " No sounds
 set encoding=utf-8                      " Force UTF-8 on files
 set list                                " Show certain chars
 set listchars=tab:\ \ ,trail:·          " Namely, trailing whitespace
+set ttimeoutlen=50
+
 
 
 " ======================== Scrolling =========================
