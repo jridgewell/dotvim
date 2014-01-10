@@ -5,6 +5,9 @@ map <leader>ee :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 
+" make Y behave like D and C
+map Y y$
+
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
 
