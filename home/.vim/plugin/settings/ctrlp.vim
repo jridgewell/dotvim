@@ -1,6 +1,6 @@
 " Make Ctrl-P appear in Command-T style
 let g:ctrlp_map = '<leader>t'
-let g:ctrlp_show_hidden=1
+let g:ctrlp_show_hidden = 1
 nnoremap <silent> <leader>t :CtrlP<CR>
 
 " Search buffers
@@ -15,7 +15,7 @@ endif
 
 " Use The Silver Searcher, if it's available
 if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 endif
 
 
