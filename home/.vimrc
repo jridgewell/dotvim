@@ -33,8 +33,6 @@ if &term =~ "iPad"
     set sidescroll=5                    " If on iPad, side scroll by 5
 endif
 
-
-
 " ========================= Keyboard =========================
 let mapleader=","                       " Make the leader easier to reach
 set backspace=indent,eol,start          " Sensible backspacing
@@ -98,8 +96,8 @@ filetype plugin indent on
 " ======================== Searching =========================
 set hlsearch                            " Highlight all matches of a search
 set incsearch                           " Show first match as you type
-set ignorecase                          " Ignore case when searching
-set smartcase                           " Unless there's a capital letter
+" set ignorecase                        " Ignore case when searching
+" set smartcase                         " Unless there's a capital letter
 nnoremap <silent> <CR> :nohlsearch<CR>
                                         " clear the search buffer when hitting return
 
