@@ -5,6 +5,9 @@ map <leader>ee :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 
+" Copy the current filename
+map <leader>cf :!echo % \| pbcopy<CR><CR>
+
 " make Y behave like D and C
 map Y y$
 
