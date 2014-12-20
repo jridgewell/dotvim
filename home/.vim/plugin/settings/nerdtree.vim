@@ -14,6 +14,9 @@ let g:NERDTreeDirArrows=2
 " I like to edit .files...
 let g:NERDTreeShowHidden=1
 
+let NERDTreeMapOpenSplit='s'
+let NERDTreeMapOpenVSplit='v'
+
 " Refresh NERDTree when vim gains focus or a file is written
 if has("autocmd")
     augroup AuNERDTreeCmd
