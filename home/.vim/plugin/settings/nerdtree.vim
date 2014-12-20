@@ -1,5 +1,6 @@
 " Open NERDTree easily
 map <silent> <leader>n :NERDTreeToggle<CR>
+map <silent> <leader>f :NERDTreeFind<CR>
 
 " Don't show these files
 let NERDTreeIgnore=['.DS_Store']
