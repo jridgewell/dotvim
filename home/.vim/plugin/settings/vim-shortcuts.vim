@@ -16,3 +16,6 @@ nmap <silent> <leader>cd :lcd %:h<CR>
 
 " Use :w!! to write to a file using sudo
 cmap w!! %!sudo tee > /dev/null %
+
+" Quick macro execution
+nnoremap Q @q;
