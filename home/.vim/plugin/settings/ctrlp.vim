@@ -20,18 +20,17 @@ endif
 if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --hidden -g ""'
     let g:ctrlp_use_caching = 0
-endif
-
-
-" Refresh Ctrl-P when vim gains focus or a file is written
-if has("autocmd")
-    augroup AuCtrlPCmd
-        autocmd AuCtrlPCmd FocusGained * call s:CtrlPFlush()
-        autocmd AuCtrlPCmd BufWritePost * call s:CtrlPFlush()
-        function! s:CtrlPFlush(...)
-            if exists(":ClearCtrlPCache") == 2
-                ClearCtrlPCache
-            endif
-        endfunction
-    augroup END
+else
+    " Refresh Ctrl-P when vim gains focus or a file is written
+    if has("autocmd")
+        augroup AuCtrlPCmd
+            autocmd AuCtrlPCmd FocusGained * call s:CtrlPFlush()
+            autocmd AuCtrlPCmd BufWritePost * call s:CtrlPFlush()
+            function! s:CtrlPFlush(...)
+                if exists(":ClearCtrlPCache") == 2
+                    ClearCtrlPCache
+                endif
+            endfunction
+        augroup END
+    endif
 endif
