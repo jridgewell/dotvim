@@ -6,7 +6,7 @@ if has("autocmd")
         autocmd AuSyntasticCmd FileType javascript call s:UpdateJavascriptLinter()
         function! s:UpdateJavascriptLinter()
             if findfile('.eslintrc', '.;') == ''
-                let b:syntastic_javascript_checkers = ['eslint']
+                let g:syntastic_javascript_checkers = ['eslint']
             endif
         endfunction
     augroup END
