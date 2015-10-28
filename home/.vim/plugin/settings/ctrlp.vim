@@ -1,9 +1,13 @@
 " Make Ctrl-P appear in Command-T style
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_by_filename = 1
+"let g:ctrlp_by_filename = 1
 nnoremap <silent> <leader>t :CtrlP<CR>
 nnoremap <silent> <leader>m :CtrlPBufTag<CR>
+
+if has('python')
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
 
 " Search buffers
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
@@ -14,7 +18,6 @@ if has("gui_running") && has("gui_macvim")
     map <silent> <D-b> :CtrlPBuffer<CR>
     map <silent> <D-M> :CtrlPBufTag<CR>
 endif
-
 
 " Use The Silver Searcher, if it's available
 if executable('ag')

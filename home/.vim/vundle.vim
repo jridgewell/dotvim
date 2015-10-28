@@ -28,6 +28,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 " Plugins
 
+Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'Raimondi/delimitMate'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'bling/vim-airline'
