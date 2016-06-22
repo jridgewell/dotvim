@@ -113,6 +113,14 @@ if has("mouse")
 endif
 
 
+" ========================= Folding ==========================
+setlocal foldmethod=indent
+if has("autocmd")
+    " autocmd BufWinEnter * normal zR
+    autocmd FileType * normal zR
+endif
+
+
 " ========================== Theme ===========================
 if &term =~ "256"
     set t_Co=256
