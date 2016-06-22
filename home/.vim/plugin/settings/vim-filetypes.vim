@@ -28,3 +28,5 @@ if has("autocmd")
     au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g`\"" | endif
 endif
+
+let g:markdown_fenced_languages = ['javascript', 'html', 'ruby']
