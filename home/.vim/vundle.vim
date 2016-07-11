@@ -53,3 +53,12 @@ Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vim-scripts/AutoTag.git'
 Bundle 'vim-scripts/matchit.zip.git'
+
+" Text Objects
+Bundle 'austintaylor/vim-indentobject'
+Bundle 'coderifous/textobj-word-column.vim'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-function'
+Bundle 'kana/vim-textobj-user'
+Bundle 'thinca/vim-textobj-function-javascript'
+Bundle 'vim-scripts/argtextobj.vim'
