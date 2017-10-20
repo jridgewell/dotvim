@@ -71,9 +71,10 @@ autocmd BufReadPost *
 
 " ====================== Tab Completion ======================
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.o,*.out,*.obj,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.swp,*~,._*
+set wildignore+=*/.git/*,*/tmp/*
 
 
 " =========================== Tabs ===========================

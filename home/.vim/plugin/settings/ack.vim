@@ -2,7 +2,8 @@
 map <leader>a :Ack!<space>
 map <leader>l :LAck!<space>
 
-" Use The Silver Searcher, if it's available
-if executable('ag')
+if executable('rg')
+    let g:ackprg = 'rg --no-heading --color=never --column'
+elseif executable('ag')
     let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
