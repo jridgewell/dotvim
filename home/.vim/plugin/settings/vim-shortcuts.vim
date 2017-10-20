@@ -20,3 +20,6 @@ cmap w!! %!sudo tee > /dev/null %
 " Quick macro execution
 nnoremap Q @q;
 vnoremap Q :normal @q;
+
+nnoremap <C-n> :cn<CR>
+nnoremap <C-p> :cp<CR>
