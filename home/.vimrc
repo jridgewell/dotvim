@@ -50,6 +50,7 @@ nnoremap <C-j> <C-w>j                   " It's exactly what you think it is
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+nnoremap <C-=> <C-w>=
 
 
 " ====================== Backups & Undo ======================
