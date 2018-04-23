@@ -19,8 +19,8 @@ if has("gui_running") && has("gui_macvim")
     map <silent> <D-M> :CtrlPBufTag<CR>
 endif
 
-if executable('ag')
-    let g:ctrlp_user_command = 'rg %s --hidden --files --color=never'
+if executable('rg')
+    let g:ctrlp_user_command = 'rg %s --files --color=never'
     let g:ctrlp_use_caching = 0
 elseif executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --hidden -g "" --nocolor'
