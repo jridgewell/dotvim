@@ -23,11 +23,13 @@ Bundle 'skwp/vim-colors-solarized'
 " Syntax
 Bundle 'sheerun/vim-polyglot'
 
+" Fuzzy Finder
+Plugin 'junegunn/fzf'
+Bundle 'junegunn/fzf.vim'
+
 " Plugins
-" Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'Raimondi/delimitMate'
 Bundle 'craigemery/vim-autotag'
-Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'ervandew/supertab'
@@ -37,12 +39,12 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vim-scripts/matchit.zip.git'
+" Bundle 'scrooloose/syntastic'
 Bundle 'w0rp/ale'
 
 " Text Objects
