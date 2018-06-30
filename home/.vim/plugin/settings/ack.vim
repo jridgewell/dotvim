@@ -3,7 +3,7 @@ map <leader>a :Ack!<space>
 map <leader>l :LAck!<space>
 
 if executable('rg')
-    let g:ackprg = 'rg --no-heading --color=never --column'
+    let g:ackprg = 'rg --vimgrep'
 elseif executable('ag')
-    let g:ackprg = 'ag --nogroup --nocolor --column'
+    let g:ackprg = 'ag --vimgrep'
 endif
