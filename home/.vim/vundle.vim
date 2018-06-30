@@ -16,38 +16,31 @@ call vundle#rc()
 
 " Vundle
 Bundle 'gmarik/vundle'
+
 " Colors
 Bundle 'skwp/vim-colors-solarized'
+
 " Syntax
 Bundle 'mmalecki/vim-node.js'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
-Bundle 'skwp/vim-rspec'
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'vim-ruby/vim-ruby'
-" Plugins
 
+" Plugins
 Bundle 'FelikZ/ctrlp-py-matcher'
 Bundle 'Raimondi/delimitMate'
-Bundle 'StanAngeloff/php.vim'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
-Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
-Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'skwp/vim-easymotion'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
