@@ -21,10 +21,7 @@ Bundle 'gmarik/vundle'
 Bundle 'skwp/vim-colors-solarized'
 
 " Syntax
-Bundle 'mmalecki/vim-node.js'
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-markdown'
+Bundle 'sheerun/vim-polyglot'
 
 " Plugins
 Bundle 'FelikZ/ctrlp-py-matcher'
