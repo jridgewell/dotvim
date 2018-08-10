@@ -7,10 +7,13 @@ augroup END
 function LargeFile()
  " no syntax highlighting etc
  set eventignore+=FileType
+
  " save memory when other file is viewed
  setlocal bufhidden=unload
+
  " set readonly
- setlocal buftype=nowrite
+ " setlocal buftype=nowrite
+
  " disable undo
  setlocal undolevels=-1
 endfunction
