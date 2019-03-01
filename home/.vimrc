@@ -22,7 +22,7 @@ set encoding=utf-8                      " Force UTF-8 on files
 set list                                " Show certain chars
 set listchars=tab:\ \ ,trail:·          " Namely, trailing whitespace
 set ttimeoutlen=50
-
+set formatlistpat=^\\s*\\(\\d\\+\\.\\\|[\\-\\*\\+]\\)\\s\\+ " Auto format lists appropriately
 
 
 " ======================== Scrolling =========================
@@ -32,6 +32,7 @@ set sidescroll=1                        " Side-scroll sensibly beyond the screen
 if &term =~ "iPad"
     set sidescroll=5                    " If on iPad, side scroll by 5
 endif
+
 
 " ========================= Keyboard =========================
 let mapleader=","                       " Make the leader easier to reach
