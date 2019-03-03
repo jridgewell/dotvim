@@ -22,7 +22,8 @@ set encoding=utf-8                      " Force UTF-8 on files
 set list                                " Show certain chars
 set listchars=tab:\ \ ,trail:·          " Namely, trailing whitespace
 set ttimeoutlen=50
-set formatlistpat=^\\s*\\(\\d\\+\\.\\\|[\\-\\*\\+]\\)\\s\\+ " Auto format lists appropriately
+set formatoptions=croqlnj               " Auto format lists appropriately
+set formatlistpat=^\\s*\\(\\d\\+\\.\\\|[\\-\\*\\+]\\)\\s\\+
 
 
 " ======================== Scrolling =========================
