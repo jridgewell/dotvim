@@ -18,4 +18,8 @@ if has("autocmd")
     " Remember last location in file, but not for commit messages.
     au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g`\"" | endif
+
+    " Don't hard wrap git commits.
+    au FileType gitcommit setlocal formatoptions-=t
+    au FileType gitcommit call s:setupWrapping()
 endif
