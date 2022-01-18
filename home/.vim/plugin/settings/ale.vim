@@ -7,6 +7,7 @@ map <leader>l :ALEFix<CR>
 let g:ale_fixers = {
 \   'javascript': ['prettier_eslint', 'prettier', 'eslint'],
 \   'typescript': ['prettier', 'tslint'],
+\   '*': ['prettier'],
 \}
 
 
