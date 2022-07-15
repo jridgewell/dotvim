@@ -6,7 +6,7 @@ augroup END
 
 function LargeFile()
  " no syntax highlighting
- setlocal syntax=OFF
+ " setlocal syntax=OFF
 
  " save memory when other file is viewed
  setlocal bufhidden=unload
@@ -15,5 +15,8 @@ function LargeFile()
  " setlocal buftype=nowrite
 
  " disable undo
- setlocal undolevels=-1
+ " setlocal undolevels=-1
+
+ " Disable syntax highlighting on long lines
+ set synmaxcol=300
 endfunction
