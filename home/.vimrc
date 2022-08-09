@@ -1,11 +1,11 @@
 " I don't use vi
 set nocompatible
 
-" ================== Vundle Initialization ===================
-" This loads all the plugins specified in ~/.vim/vundle.vim
-" Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundle.vim"))
-  source ~/.vim/vundle.vim
+" ================== Plugin Initialization ===================
+" This loads all the plugins specified in ~/.vim/plugin.vim
+" Use vim-plug plugin to manage all other plugins
+if filereadable(expand("~/.vim/plugin.vim"))
+  source ~/.vim/plugin.vim
 endif
 
 " ====================== General Config ======================
