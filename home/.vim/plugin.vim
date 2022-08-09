@@ -32,13 +32,13 @@ Plug 'godlygeek/tabular'
 Plug 'mileszs/ack.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale'
 
 " Text Objects
