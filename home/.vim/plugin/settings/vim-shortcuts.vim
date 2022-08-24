@@ -23,3 +23,6 @@ vnoremap Q :normal @q;
 
 nnoremap <C-n> :cn<CR>
 nnoremap <C-p> :cp<CR>
+
+" Search for selected text without regex magic.
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
