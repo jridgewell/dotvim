@@ -1,5 +1,5 @@
 " Shortcut for searching all files
-map <leader>a :Ack!<space>
+map <leader>a :Ack!<space>''<left>
 map <leader>l :LAck!<space>
 
 if executable('rg')
