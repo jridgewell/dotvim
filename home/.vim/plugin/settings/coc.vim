@@ -4,6 +4,7 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ 'coc-toml',
   \ 'coc-tsserver',
+  \ 'coc-lists',
   \ ]
 
 map <leader>l :call CocAction('format')<CR>
@@ -75,7 +76,7 @@ nmap <leader>rn <Plug>(coc-rename)
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 " xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>x  <Plug>(coc-codeaction-cursor)
 
 " Remap keys for applying codeAction to the current buffer.
 " nmap <leader>ac  <Plug>(coc-codeaction)
@@ -128,14 +129,16 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Mappings for CoCList
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Show buffer's diagnostics.
+nnoremap <silent><nowait> <space>b  :<C-u>CocDiagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>e  :<C-u>CocList --normal extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>c  :<C-u>CocList --normal commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList --normal outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList --normal -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.

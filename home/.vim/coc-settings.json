@@ -1,0 +1,31 @@
+{
+  "coc.preferences.useQuickfixForLocations": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "rust",
+    "typescript",
+    "javascript",
+    "toml"
+  ],
+  // "coc.preferences.formatOnSaveFiletypes": ["*"],
+
+  "rust-analyzer.server.path": "rust-analyzer",
+  // "rust-analyzer.cargo.features": "all",
+  "rust-analyzer.server.extraEnv": {
+    "RUST_BACKTRACE": "0"
+  },
+  "rust-analyzer.check.extraEnv": {},
+  "rust-analyzer.cargo.extraEnv": {
+    "CARGO_TARGET_DIR": "target/rust-analyzer"
+  },
+  "rust-analyzer.imports.prefix": "self",
+  "rust-analyzer.completion.privateEditable.enable": true,
+
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
+
+  "list.source.files.excludePatterns": ["/Users/jridgewell/.cargo/**"],
+  "list.normalMappings": {
+    "v": "action:vsplit",
+    "r": "do:refresh"
+  }
+}
