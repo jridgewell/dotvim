@@ -26,3 +26,9 @@ nnoremap <C-p> :cp<CR>
 
 " Search for selected text without regex magic.
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" Search the current column for the first line with a non-whitespace char.
+" mnemonic is "column up" and "column down".
+" https://vi.stackexchange.com/a/693
+nnoremap cu :call search('\%' . virtcol('.') . 'v\S', 'bW')<CR>
+nnoremap cd :call search('\%' . virtcol('.') . 'v\S', 'W')<CR>
